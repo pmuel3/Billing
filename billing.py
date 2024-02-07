@@ -1,80 +1,62 @@
 #!/usr/bin/env python3
 
-print("Minimum number of minutes needed for billing")
-print()
-print("How many units of Ther Ex?")
-ex = int(input())
-print("How many units of Neuro?")
+print('How many units of Ionto?')
+
+ionto = int(input())
+
+print('How many units of ultrasound?')
+
+ultrasound = int(input())
+
+print('How many units of Ther Ex?')
+
+ther_ex = int(input())
+
+print('How many units of Neuro?')
+
 neuro = int(input())
-print("How many units of Gait?")
+
+print('How many units of Gait?')
+
 gait = int(input())
-print("How many units of Manual?")
+
+print('How many units of Manual?')
+
 manual = int(input())
-print("How many units of Ther Act?")
-act = int(input())
 
-#ther ex
-ex_minimum = 0
-if ex == 1:
-	ex_minimum = 8
-elif ex == 2:
-	ex_minimum = 23
-elif ex == 3:
-	ex_minimum = 38
-elif ex == 4:
-	ex_minimum = 53
+print('How many units of Ther Act?')
 
-#Neuro
-neuro_minimum = 0
-if neuro == 1:
-	neuro_minimum = 8
-elif neuro == 2:
-	neuro_minimum = 23
-elif neuro == 3:
-	neuro_minimum = 38
-elif neuro == 4:
-	neuro_minimum = 53
-
-#Gait
-gait_minimum = 0
-if gait == 1:
-	gait_minimum = 8
-elif gait == 2:
-	gait_minimum = 23
-elif gait == 3:
-	gait_minimum = 38
-elif gait == 4:
-	gait_minimum = 53
+ther_act = int(input())
 
 
-#manual
-manual_minimum = 0
-if manual == 1:
-	manual_minimum = 8
-elif manual == 2:
-	manual_minimum = 23
-elif manual == 3:
-	manual_minimum = 38
-elif manual == 4:
-	manual_minimum = 53
+def unit_func(num):
+    if num == 1:
+        minutes = 8
+    elif num > 1:
+        minutes = (15 * (num -1)) + 8
+    elif num == 0:
+        minutes = 0
+    return minutes
 
-#Ther Act
-act_minimum = 0
-if act == 1:
-	act_minimum = 8
-elif act == 2:
-	act_minimum = 23
-elif act == 3:
-	act_minimum = 38
-elif act == 4:
-	act_minimum = 53
+ionto_minutes = unit_func(ionto)
+
+ultrasound_minutes = unit_func(ultrasound)
+
+ther_ex_minutes = unit_func(ther_ex)
+
+neuro_minutes = unit_func(neuro)
+
+gait_minutes = unit_func(gait)
+
+manual_minutes = unit_func(manual)
+
+ther_act_minutes = unit_func(ther_act)
+
+
+total_minutes = ionto_minutes + ultrasound_minutes + ther_ex_minutes + neuro_minutes + gait_minutes + manual_minutes + ther_act_minutes
 
 print()
 print()
-
-
-#total
-min_total_time = (ex_minimum + neuro_minimum + gait_minimum + manual_minimum + act_minimum)
-print("Minimum total time required:", min_total_time, "minutes")
+print("Total minimum time required for desired units:")
 print()
-print()
+print(total_minutes)
